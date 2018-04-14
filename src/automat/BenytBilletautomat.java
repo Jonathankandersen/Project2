@@ -3,6 +3,7 @@ package automat;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 
 public class BenytBilletautomat {
 
@@ -10,7 +11,7 @@ public class BenytBilletautomat {
         Billetautomat automat = new Billetautomat();
         java.util.Scanner tastatur = new java.util.Scanner(System.in);  // forbered
 
-        System.out.println("BenytBilletautomat version 3");
+        System.out.println("BenytBilletautomat Project2");
         System.out.println();
 
         while (true) {
@@ -97,7 +98,7 @@ public class BenytBilletautomat {
                     automat.montørLogin("");
                     break;
                 }
-                /* case 15: {
+                 case 15: {
 
                     automat.getLog();
 
@@ -112,7 +113,7 @@ public class BenytBilletautomat {
                     }
                     break;
 
-                }*/
+                }
                 default: {
                     System.out.println("Ugyldigt valg, prøv igen");
                     break;

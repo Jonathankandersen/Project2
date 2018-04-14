@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import java.util.Date;
+import java.util.ArrayList;
 
 /**
  * 
@@ -20,6 +22,7 @@ public class Billetautomat {
     private boolean montørtilstand;
     private boolean medlemstilstand;
     private int medlemsType;
+    private int Date;
 
     /**
      * Opret en billetautomat der sælger billetter til 10 kr.
@@ -29,6 +32,8 @@ public class Billetautomat {
         balance = 0;
         antalBilletterSolgt = 0;
     }
+    
+    ArrayList<String> Medlemsnavn, MedlemsKode = new ArrayList();
 
     /**
      * Giver prisen for en billet.
@@ -143,11 +148,43 @@ public class Billetautomat {
             System.out.println("Afvist - log ind først");
         }
     }
+    public void tilføjMedlem() {
+
+        System.out.println("Indtast dit fornavn: ");
+        
+    }
 
     public boolean erMedlem() {
         return medlemstilstand;
     }
+    public void medlemLogin(String medlemskode) {
+        if (MedlemsKode.contains(medlemskode)) {
+            medlemstilstand = true;
+            System.out.println("Du er logget ind som medlem!");
+            int index = MedlemsKode.indexOf(medlemskode);
+        } else {
+            medlemstilstand = false;
+
+            System.out.println("Ikke medlem!");
+        }
+    }
+    public Date dato = new Date();
     
+    public void getLog() { // Lavet en ny log metode
+        System.out.println("Log: ");
+        System.out.println("Dato: "+dato);
+        System.out.println("Antal solgte billetter: " + getAntalBilletterSolgt());
+        System.out.println("Total omsætning: " + getTotal());
+    }
+    public void writerLog()
+            throws IOException {
+        FileWriter fileWriter = new FileWriter("fil.txt");
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        printWriter.println("Antal solgte billetter: " + getAntalBilletterSolgt() + " Styk");
+        printWriter.println("Total: " + getTotal() + "Kroner");
+        printWriter.close();
+
+    }
    
 
     public void rabatBillet() {
@@ -176,4 +213,17 @@ public class Billetautomat {
     public boolean erMontør() {
         return montørtilstand;
     }
+    
+    public void FTP(String[] a) throws Exception {
+        FtpForbindelse f = new FtpForbindelse();
+        // bemærk - vær altid MEGET FORSIGTIG med at angive adgangskoder i en fil!!
+        f.forbind("192.168.0.105", "TESTER", "Hvadlaverjeg?");
+
+        String indhold = "Indhold af en lille fil med navnet:\nfil.txt\n";
+        f.sendTekst("STOR log.txt", indhold);
+
+        indhold = f.modtagTekst("RETR fil.txt");
+        System.out.println("Fil hentet med indholdet: " + indhold);
+    }
 }
+

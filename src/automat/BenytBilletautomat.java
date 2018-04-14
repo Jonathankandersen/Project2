@@ -57,17 +57,17 @@ public class BenytBilletautomat {
                     int beløb = automat.returpenge();
                     break;
                 }
-                /*  case 4: {
+                  case 4: {
                     System.out.print("Skriv medlemskode: ");
-                    String medlemskode = tastatur.next();
-                    automat.medlemLogin(medlemskode);
+                    String medlemsKode = tastatur.next();
+                    automat.medlemLogin(medlemsKode);
 
                     break;
                 }
                 case 5: {
                     automat.tilføjMedlem();
                     break;
-                }*/
+                }
                 case 6: {
                     automat.rabatBillet();
                     break;

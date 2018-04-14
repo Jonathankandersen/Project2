@@ -23,6 +23,8 @@ public class Billetautomat {
     private boolean medlemstilstand;
     private int medlemsType;
     private int Date;
+    
+    java.util.Scanner tastatur = new java.util.Scanner(System.in);
 
     /**
      * Opret en billetautomat der sælger billetter til 10 kr.
@@ -33,7 +35,8 @@ public class Billetautomat {
         antalBilletterSolgt = 0;
     }
     
-    ArrayList<String> Medlemsnavn, MedlemsKode = new ArrayList();
+    ArrayList<String> Medlemsnavn= new ArrayList();
+    ArrayList<String> MedlemsKode= new ArrayList();
 
     /**
      * Giver prisen for en billet.
@@ -151,17 +154,22 @@ public class Billetautomat {
     public void tilføjMedlem() {
 
         System.out.println("Indtast dit fornavn: ");
+        Medlemsnavn.add(tastatur.nextLine());
+        System.out.println("Dit navn: "+Medlemsnavn);
+        System.out.println("Indtast din kode: ");
+        MedlemsKode.add(tastatur.nextLine());
+        System.out.println("Din kode er: "+MedlemsKode);
         
     }
 
     public boolean erMedlem() {
         return medlemstilstand;
     }
-    public void medlemLogin(String medlemskode) {
-        if (MedlemsKode.contains(medlemskode)) {
+    public void medlemLogin(String medlemsKode) {
+        if (MedlemsKode.contains(medlemsKode)) {
             medlemstilstand = true;
             System.out.println("Du er logget ind som medlem!");
-            int index = MedlemsKode.indexOf(medlemskode);
+            int index = MedlemsKode.indexOf(medlemsKode);
         } else {
             medlemstilstand = false;
 

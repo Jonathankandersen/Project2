@@ -6,6 +6,11 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Hold 10
+ */
+
 public class Billetautomat {
 
     private int billetpris;    // Prisen for én billet.

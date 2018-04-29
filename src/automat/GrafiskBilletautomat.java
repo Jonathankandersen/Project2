@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package automat;
+import javax.swing.*;
 
 /**
  *
  * @author saxok_000
  */
-public class GrafiskBilletautomat extends javax.swing.JPanel {
+public class GrafiskBilletautomat extends JPanel {
 
     /**
      * Creates new form GrafiskBilletautomat

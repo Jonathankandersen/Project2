@@ -9,10 +9,9 @@ import java.util.Date;
 import java.util.ArrayList;
 
 /**
- * 
+ *
  * @author Hold 10
  */
-
 public class Billetautomat {
 
     private int billetpris;    // Prisen for én billet.
@@ -23,8 +22,8 @@ public class Billetautomat {
     private boolean medlemstilstand;
     private int medlemsType;
     private int Date;
-    
-    java.util.Scanner tastatur = new java.util.Scanner(System.in);
+
+    Scanner tastatur = new Scanner(System.in);
 
     /**
      * Opret en billetautomat der sælger billetter til 10 kr.
@@ -34,9 +33,9 @@ public class Billetautomat {
         balance = 0;
         antalBilletterSolgt = 0;
     }
-    
-    ArrayList<String> Medlemsnavn= new ArrayList();
-    ArrayList<String> MedlemsKode= new ArrayList();
+
+    ArrayList<String> Medlemsnavn = new ArrayList();
+    ArrayList<String> Billetter = new ArrayList();
 
     /**
      * Giver prisen for en billet.
@@ -151,39 +150,44 @@ public class Billetautomat {
             System.out.println("Afvist - log ind først");
         }
     }
+
     public void tilføjMedlem() {
 
         System.out.println("Indtast dit fornavn: ");
         Medlemsnavn.add(tastatur.nextLine());
-        System.out.println("Dit navn: "+Medlemsnavn);
+        System.out.println("Dit navn: " + Medlemsnavn);
         System.out.println("Indtast din kode: ");
         MedlemsKode.add(tastatur.nextLine());
-        System.out.println("Din kode er: "+MedlemsKode);
-        
+        System.out.println("Din kode er: " + MedlemsKode);
+
     }
 
     public boolean erMedlem() {
         return medlemstilstand;
     }
+
     public void medlemLogin(String medlemsKode) {
-        if (MedlemsKode.contains(medlemsKode)) {
+        if (.contains(medlemsKode)
+        
+            ) {
             medlemstilstand = true;
             System.out.println("Du er logget ind som medlem!");
             int index = MedlemsKode.indexOf(medlemsKode);
-        } else {
+        }else {
             medlemstilstand = false;
 
             System.out.println("Ikke medlem!");
         }
     }
     public Date dato = new Date();
-    
+
     public void getLog() { // Lavet en ny log metode
         System.out.println("Log: ");
-        System.out.println("Dato: "+dato);
+        System.out.println("Dato: " + dato);
         System.out.println("Antal solgte billetter: " + getAntalBilletterSolgt());
         System.out.println("Total omsætning: " + getTotal());
     }
+
     public void writerLog()
             throws IOException {
         FileWriter fileWriter = new FileWriter("fil.txt");
@@ -193,7 +197,6 @@ public class Billetautomat {
         printWriter.close();
 
     }
-   
 
     public void rabatBillet() {
         if (medlemstilstand) {
@@ -221,7 +224,7 @@ public class Billetautomat {
     public boolean erMontør() {
         return montørtilstand;
     }
-    
+
     public void FTP(String[] a) throws Exception {
         FtpForbindelse f = new FtpForbindelse();
         // bemærk - vær altid MEGET FORSIGTIG med at angive adgangskoder i en fil!!
@@ -234,4 +237,3 @@ public class Billetautomat {
         System.out.println("Fil hentet med indholdet: " + indhold);
     }
 }
-

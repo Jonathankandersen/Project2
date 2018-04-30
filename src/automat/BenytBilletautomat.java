@@ -4,19 +4,21 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Date;
+import java.util.Scanner;
 
 public class BenytBilletautomat {
 
     public static void main(String[] arg) {
         Billetautomat automat = new Billetautomat();
-        java.util.Scanner tastatur = new java.util.Scanner(System.in);  // forbered
+        Scanner tastatur = new Scanner(System.in);  // forbered
 
         System.out.println("BenytBilletautomat Project2");
         System.out.println();
 
+        // Første udskrift mangler en struktur til at printe info (priser) fra array.
         while (true) {
             System.out.println("-----------------------------------------------");
-            System.out.println("En billet koster " + automat.getBilletpris() + " kroner");
+            System.out.println("En billet koster " + automat.getBilletpriser() + " kroner");
             System.out.println("Balancen er på " + automat.getBalance() + " kroner");
             System.out.println();
             System.out.println("Tast 1 for at indbetale penge");
@@ -59,7 +61,7 @@ public class BenytBilletautomat {
                 }
                   case 4: {
                     System.out.print("Skriv medlemskode: ");
-                    String medlemsKode = tastatur.next();
+                    int medlemsKode = tastatur.nextInt();
                     automat.medlemLogin(medlemsKode);
 
                     break;

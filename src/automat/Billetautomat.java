@@ -38,6 +38,7 @@ public class Billetautomat {
 
     /**
      * Giver prisen for en billet.
+     * @return 
      */
     public int[] getBilletpriser() {
         int billetpriser[] = new int[Billet.size()];
@@ -49,6 +50,7 @@ public class Billetautomat {
 
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
+     * @param beløb
      */
     public void indsætPenge(int beløb) {
         if (beløb > 0 && beløb <= 1000) { //Første Krav Ændring med Boolan Udtryk 
@@ -70,6 +72,7 @@ public class Billetautomat {
 
     /**
      * Giver balancen (beløbet maskinen har modtaget til den næste billet).
+     * @return 
      */
     public int getBalance() {
         return balance;

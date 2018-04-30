@@ -21,4 +21,8 @@ public class Billet {
     public int GetBilletpris() {
         return billetpris;
     }
+    
+    public String GetBillettype() {
+        return billettype;
+    }
 }

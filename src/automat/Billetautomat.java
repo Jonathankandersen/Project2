@@ -3,7 +3,6 @@ package automat;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 import java.util.Date;
 import java.util.ArrayList;
@@ -34,15 +33,18 @@ public class Billetautomat {
         antalBilletterSolgt = 0;
     }
 
-    ArrayList<String> Medlemsnavn = new ArrayList();
-    ArrayList<String> Billetter = new ArrayList();
+    ArrayList<Medlemmer> Medlem = new ArrayList();
+    ArrayList<Billet> Billet = new ArrayList();
 
     /**
      * Giver prisen for en billet.
      */
-    public int getBilletpris() {
-        int resultat = billetpris;
-        return resultat;
+    public int[] getBilletpriser() {
+        int billetpriser[] = new int[Billet.size()];
+        for(int i = 0; i < Billet.size(); i++){
+            billetpriser[i] = Billet.get(i).GetBilletpris();
+        }
+        return billetpriser;
     }
 
     /**
@@ -154,32 +156,30 @@ public class Billetautomat {
     public void tilføjMedlem() {
 
         System.out.println("Indtast dit fornavn: ");
-        Medlemsnavn.add(tastatur.nextLine());
-        System.out.println("Dit navn: " + Medlemsnavn);
-        System.out.println("Indtast din kode: ");
-        MedlemsKode.add(tastatur.nextLine());
-        System.out.println("Din kode er: " + MedlemsKode);
+        String memberName = tastatur.nextLine();
+        System.out.println("Indtast din kode");
+        int memberCode = tastatur.nextInt();
+        Medlemmer Member = new Medlemmer(memberName, memberCode);
 
+        Medlem.add(Member);
     }
 
     public boolean erMedlem() {
         return medlemstilstand;
     }
 
-    public void medlemLogin(String medlemsKode) {
-        if (.contains(medlemsKode)
-        
-            ) {
-            medlemstilstand = true;
-            System.out.println("Du er logget ind som medlem!");
-            int index = MedlemsKode.indexOf(medlemsKode);
-        }else {
-            medlemstilstand = false;
-
-            System.out.println("Ikke medlem!");
+    public void medlemLogin(int medlemsKode) {
+        for (int i = 0; i < Medlem.size(); i++) {
+            if (Medlem.get(i).medlemskode == medlemsKode) {
+                medlemstilstand = true;
+                System.out.println("Du er logget ind som medlem!");
+            } else {
+                medlemstilstand = false;
+                System.out.println("Du er ikke medlem!");
+            }
         }
     }
-    public Date dato = new Date();
+    Date dato = new Date();
 
     public void getLog() { // Lavet en ny log metode
         System.out.println("Log: ");

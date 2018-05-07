@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Billetautomat {
 
-    private int billetpris;     // Prisen for én billet.
+    private int billetpris;     // Prisen for en billet.
     private int balance;        // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
-    private int medlemspris;        // Prisen for én billet til medlemmer
+    private int medlemspris;        // Prisen for en billet til medlemmer
     private boolean montørtilstand;
     private boolean medlemstilstand;
     private int medlemsType;
@@ -49,12 +49,17 @@ public class Billetautomat {
      *
      * @return
      */
-    public int[] getBilletpriser() {
-        int billetpriser[] = new int[Billetter.size()];
+    public String getBilletpriser() {
+        String priser;
         for (int i = 0; i < Billetter.size(); i++) {
-            billetpriser[i] = Billetter.get(i).GetBilletpris();
+            int k = Billetter.get(i).GetBilletpris();
+            String t = Billetter.get(i).GetBillettype();
+            int r = Billetter.get(i).GetRabat();
+            System.out.println("En " + t + " koster " + k + " Kr. Eller " + r + " Kr. hvis du er medlem.");
+            
+            priser.concat(k);
         }
-        return billetpriser;
+        return priser;
     }
 
     /**
@@ -93,7 +98,7 @@ public class Billetautomat {
      * Udskriv en billet. Opdater total og nedskriv balancen med billetprisen
      */
     public void udskrivBillet() {
-        if (balance < 10) {
+        if (balance < billetpris) {
             System.out.println("Du mangler at indbetale nogle penge");
         } else {
             System.out.println("##########B##T#########");
@@ -157,7 +162,7 @@ public class Billetautomat {
         if (montørtilstand) {
             antalBilletterSolgt = 0;
         } else {
-            System.out.println("Afvist - log ind først");
+            System.out.println("Afvist - log ind som montør først");
         }
     }
 

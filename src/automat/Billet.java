@@ -37,5 +37,8 @@ public class Billet {
         billetpris = nyPris;
     }
     
-    
+    public void setBilletPris(int nyPris, int nyRabat){
+        billetpris = nyPris;
+        rabatpris = nyRabat;
+    }
 }

@@ -13,14 +13,17 @@ import java.util.ArrayList;
  */
 public class Billetautomat {
 
-    private int billetpris;    // Prisen for én billet.
-    private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private int billetpris;     // Prisen for én billet.
+    private int balance;        // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private int medlemspris;        // Prisen for én billet til medlemmer
     private boolean montørtilstand;
     private boolean medlemstilstand;
     private int medlemsType;
     private int Date;
+
+    ArrayList<Medlemmer> Medlem = new ArrayList();
+    ArrayList<Billet> Billetter = new ArrayList();
 
     Scanner tastatur = new Scanner(System.in);
 
@@ -31,25 +34,32 @@ public class Billetautomat {
         billetpris = 10;
         balance = 0;
         antalBilletterSolgt = 0;
+        Billet voksenbillet = new Billet("voksen", 20, 15);
+        Billetter.add(voksenbillet);
+        Billet barnebillet = new Billet("barn", 15, 10);
+        Billetter.add(barnebillet);
+        Billet cykelbillet = new Billet("cykel", 25, 20);
+        Billetter.add(cykelbillet);
+        Billet pensionist = new Billet("pensionist", 15, 10);
+        Billetter.add(pensionist);
     }
-
-    ArrayList<Medlemmer> Medlem = new ArrayList();
-    ArrayList<Billet> Billet = new ArrayList();
 
     /**
      * Giver prisen for en billet.
-     * @return 
+     *
+     * @return
      */
     public int[] getBilletpriser() {
-        int billetpriser[] = new int[Billet.size()];
-        for(int i = 0; i < Billet.size(); i++){
-            billetpriser[i] = Billet.get(i).GetBilletpris();
+        int billetpriser[] = new int[Billetter.size()];
+        for (int i = 0; i < Billetter.size(); i++) {
+            billetpriser[i] = Billetter.get(i).GetBilletpris();
         }
         return billetpriser;
     }
 
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
+     *
      * @param beløb
      */
     public void indsætPenge(int beløb) {
@@ -72,7 +82,8 @@ public class Billetautomat {
 
     /**
      * Giver balancen (beløbet maskinen har modtaget til den næste billet).
-     * @return 
+     *
+     * @return
      */
     public int getBalance() {
         return balance;
@@ -84,20 +95,22 @@ public class Billetautomat {
     public void udskrivBillet() {
         if (balance < 10) {
             System.out.println("Du mangler at indbetale nogle penge");
-        }
-        System.out.println("##########B##T#########");
-        System.out.println("# BlueJ Trafikselskab #");
-        System.out.println("#                     #");
-        System.out.println("#        Billet       #");
-        System.out.println("#        " + billetpris + " kr.       #");
-        System.out.println("#                     #");
-        System.out.println("##########B##T#########");
-        System.out.println("# Du har " + (balance - billetpris) + " kr til gode       #");
-        System.out.println("##########B##T#########");
-        System.out.println();
+        } else {
+            System.out.println("##########B##T#########");
+            System.out.println("# BlueJ Trafikselskab #");
+            System.out.println("#                     #");
+            System.out.println("#        Billet       #");
+            System.out.println("#        " + billetpris + " kr.       #");
+            System.out.println("#                     #");
+            System.out.println("##########B##T#########");
+            System.out.println("# Du har " + (balance - billetpris) + " kr til gode       #");
+            System.out.println("##########B##T#########");
+            System.out.println();
 
-        antalBilletterSolgt = antalBilletterSolgt + 1;
-        balance = balance - billetpris; // Billetter koster 10 kroner
+            antalBilletterSolgt = antalBilletterSolgt + 1;
+            balance = balance - billetpris; // Billetter koster 10 kroner
+        }
+
     }
 
     public int returpenge() {
@@ -176,6 +189,7 @@ public class Billetautomat {
             if (Medlem.get(i).medlemskode == medlemsKode) {
                 medlemstilstand = true;
                 System.out.println("Du er logget ind som medlem!");
+                break;
             } else {
                 medlemstilstand = false;
                 System.out.println("Du er ikke medlem!");
@@ -184,7 +198,7 @@ public class Billetautomat {
     }
     Date dato = new Date();
 
-    public void getLog() { // Lavet en ny log metode
+    public void getLog() {  // Lavet en ny log metode
         System.out.println("Log: ");
         System.out.println("Dato: " + dato);
         System.out.println("Antal solgte billetter: " + getAntalBilletterSolgt());

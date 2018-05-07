@@ -93,7 +93,7 @@ public class BenytBilletautomat {
                 case 13: {
                     System.out.print("Skriv beløb: ");
                     int beløb = tastatur.nextInt();
-                    automat.setBilletpris(beløb);
+                    automat.setBilletpris();
                     break;
                 }
                 case 14: {
@@ -123,7 +123,7 @@ public class BenytBilletautomat {
                 }
                 case 20: {
                    // automat.medlemLogin("");
-                    automat.setBilletpris(10);
+                    automat.setBilletpris();
                     break;
                 }
 

@@ -50,14 +50,14 @@ public class Billetautomat {
      * @return
      */
     public String getBilletpriser() {
-        String priser;
+        String priser = "";
         for (int i = 0; i < Billetter.size(); i++) {
             int k = Billetter.get(i).GetBilletpris();
             String t = Billetter.get(i).GetBillettype();
             int r = Billetter.get(i).GetRabat();
             System.out.println("En " + t + " koster " + k + " Kr. Eller " + r + " Kr. hvis du er medlem.");
             
-            priser.concat(k);
+            priser = priser.concat(""+k);
         }
         return priser;
     }
@@ -154,8 +154,15 @@ public class Billetautomat {
         }
     }
 
-    public void setBilletpris(int billetpris) {
-        this.billetpris = billetpris;
+    public void setBilletpris() {
+        for(int i = 0; i < Billetter.size(); i++){
+            System.out.println("Angiv ny pris for billet: " + Billetter.get(i).GetBillettype() + " der har den nuværende pris: " + Billetter.get(i).GetBilletpris());
+            int nyPris = tastatur.nextInt();
+            System.out.println("Skal rabatprisen også sænkes? ");
+            boolean prisValg = false;
+            Billetter.get(i).setBilletPris( 17 );
+        }
+        
     }
 
     public void nulstil() {

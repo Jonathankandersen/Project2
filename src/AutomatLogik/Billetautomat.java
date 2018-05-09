@@ -24,6 +24,7 @@ public class Billetautomat {
 
     ArrayList<Medlemmer> Medlem = new ArrayList();
     ArrayList<Billet> Billetter = new ArrayList();
+    ArrayList<String> Logbog = new ArrayList();
 
     Scanner tastatur = new Scanner(System.in);
 
@@ -212,18 +213,15 @@ public class Billetautomat {
     Date dato = new Date();
 
     public void getLog() {  // Lavet en ny log metode
-        System.out.println("Log: ");
-        System.out.println("Dato: " + dato);
-        System.out.println("Antal solgte billetter: " + getAntalBilletterSolgt());
-        System.out.println("Total omsætning: " + getTotal());
+        Logbog.add("Dato: " + dato + "Antal solgte billetter: " + getAntalBilletterSolgt() + "Total omsætning: " + getTotal());
+        System.out.println("Logbog: " + Logbog);
     }
 
     public void writerLog()
             throws IOException {
         FileWriter fileWriter = new FileWriter("fil.txt");
         PrintWriter printWriter = new PrintWriter(fileWriter);
-        printWriter.println("Antal solgte billetter: " + getAntalBilletterSolgt() + " Styk");
-        printWriter.println("Total: " + getTotal() + "Kroner");
+        printWriter.println("Log: " + Logbog);
         printWriter.close();
 
     }
@@ -245,9 +243,9 @@ public class Billetautomat {
     public void FTP(String[] a) throws Exception {
         FtpForbindelse f = new FtpForbindelse();
         // bemærk - vær altid MEGET FORSIGTIG med at angive adgangskoder i en fil!!
-        f.forbind("192.168.0.105", "TESTER", "Hvadlaverjeg?");
+        f.forbind("ftp.dlptest.com", "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M");
 
-        String indhold = "Indhold af en lille fil med navnet:\nfil.txt\n";
+        String indhold = ("Log: " + Logbog);
         f.sendTekst("STOR log.txt", indhold);
 
         indhold = f.modtagTekst("RETR fil.txt");

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package automat;
+package AutomatLogik;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +25,7 @@ public class BenytGrafikpanel {
         vindue.add(panel);                          // vis panelet i vinduet
 
         vindue.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   // reagér på luk
-        vindue.setSize(350, 70);    // sæt vinduets størrelse
+        vindue.setSize(540, 360);   // sæt vinduets størrelse
         vindue.setVisible(true);    // åbn vinduet
     }
 }

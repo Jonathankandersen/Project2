@@ -1,4 +1,4 @@
-package automat;
+package AutomatLogik;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -55,8 +55,8 @@ public class Billetautomat {
             String t = Billetter.get(i).GetBillettype();
             int r = Billetter.get(i).GetRabat();
             System.out.println("En " + t + " koster " + k + " Kr. Eller " + r + " Kr. hvis du er medlem.");
-            
-            priser = priser.concat(""+k);
+
+            priser = priser.concat("" + k);
         }
         return priser;
     }
@@ -153,14 +153,19 @@ public class Billetautomat {
     }
 
     public void setBilletpris() {
-        for(int i = 0; i < Billetter.size(); i++){
+        for (int i = 0; i < Billetter.size(); i++) {
             System.out.println("Angiv ny pris for billet: " + Billetter.get(i).GetBillettype() + " der har den nuværende pris: " + Billetter.get(i).GetBilletpris());
             int nyPris = tastatur.nextInt();
             System.out.println("Skal rabatprisen også sænkes? ");
             boolean prisValg = false;
-            Billetter.get(i).setBilletPris( 17 );
+            int nyRabat;
+            if (prisValg == true) {
+                nyRabat = tastatur.nextInt();
+            } else {
+                nyRabat = Billetter.get(i).GetRabat();
+            }
+            Billetter.get(i).setBilletPris(nyPris, nyRabat);
         }
-        
     }
 
     public void nulstil() {
@@ -180,13 +185,13 @@ public class Billetautomat {
     }
 
     public void tilføjMedlem() {
-
         System.out.println("Indtast dit fornavn: ");
         String memberName = tastatur.nextLine();
-        System.out.println("Indtast din kode");
+        System.out.println("Indtast din kode: ");
         int memberCode = tastatur.nextInt();
-        Medlemmer Member = new Medlemmer(memberName, memberCode);
-
+        System.out.println("Indtast hvilket type medlem du er: ");
+        int memberType = tastatur.nextInt();
+        Medlemmer Member = new Medlemmer(memberName, memberCode, memberType);
         Medlem.add(Member);
     }
 
@@ -196,9 +201,9 @@ public class Billetautomat {
 
     public void medlemLogin(int medlemsKode) {
         for (int i = 0; i < Medlem.size(); i++) {
-            if (Medlem.get(i).medlemskode == medlemsKode) {
+            if (Medlem.get(i).medlemsKode == medlemsKode) {
                 medlemstilstand = true;
-                System.out.println("Du er logget ind som medlem!");
+                System.out.println("Du er logget ind som medlem! Hej " + Medlem.get(i).medlemsNavn);
                 break;
             } else {
                 medlemstilstand = false;

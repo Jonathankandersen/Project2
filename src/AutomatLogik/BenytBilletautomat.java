@@ -1,4 +1,4 @@
-package automat;
+package AutomatLogik;
 
 import java.io.IOException;
 import java.util.logging.Level;

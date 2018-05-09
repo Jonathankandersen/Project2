@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package automat;
+package AutomatLogik;
 import javax.swing.*;
 
 /**
@@ -29,7 +29,6 @@ public class GrafiskBilletautomat extends JPanel {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         BilletterGroup = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -38,9 +37,6 @@ public class GrafiskBilletautomat extends JPanel {
         ButtonBarn = new javax.swing.JRadioButton();
         ButtonCykel = new javax.swing.JRadioButton();
         ButtonPensionist = new javax.swing.JRadioButton();
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -105,7 +101,6 @@ public class GrafiskBilletautomat extends JPanel {
     private javax.swing.JRadioButton ButtonCykel;
     private javax.swing.JRadioButton ButtonPensionist;
     private javax.swing.JRadioButton ButtonVoksen;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;

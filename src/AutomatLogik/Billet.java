@@ -32,12 +32,12 @@ public class Billet {
     public int GetRabat() {
         return rabatpris;
     }
-    
-    public void setBilletPris(int nyPris){
+
+    public void setBilletPris(int nyPris) {
         billetpris = nyPris;
     }
-    
-    public void setBilletPris(int nyPris, int nyRabat){
+
+    public void setBilletPris(int nyPris, int nyRabat) {
         billetpris = nyPris;
         rabatpris = nyRabat;
     }

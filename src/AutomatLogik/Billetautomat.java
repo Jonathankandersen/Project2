@@ -189,7 +189,7 @@ public class Billetautomat {
         String memberName = tastatur.nextLine();
         System.out.println("Indtast din kode: ");
         int memberCode = tastatur.nextInt();
-        System.out.println("Indtast hvilket type medlem du er: ");
+        System.out.println("Indtast hvilken type medlem du er: ");
         int memberType = tastatur.nextInt();
         Medlemmer Member = new Medlemmer(memberName, memberCode, memberType);
         Medlem.add(Member);
@@ -232,20 +232,7 @@ public class Billetautomat {
 
     public void rabatBillet() {
         if (medlemstilstand) {
-            switch (medlemsType) {
-                case 1:
-                    billetpris = 5;
-                    break;
-                case 2:
-                    billetpris = 10;
-                    break;
-                case 3:
-                    billetpris = 15;
-                    break;
-                case 4:
-                    billetpris = 20;
-                    break;
-            }
+            
             this.billetpris = medlemspris;
             System.out.println("Din billetpris " + medlemspris);
         } else {

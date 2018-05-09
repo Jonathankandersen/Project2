@@ -16,7 +16,7 @@ import java.util.Scanner;
  *
  * @author Hold 10
  */
-public class BenytGrafikpanel {
+public class BenytGrafiskBilletautomat {
 
     public static void main(String[] arg) {
         GrafiskBilletautomat panel = new GrafiskBilletautomat();    // opret panelet

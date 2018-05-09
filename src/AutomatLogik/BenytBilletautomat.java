@@ -59,7 +59,7 @@ public class BenytBilletautomat {
                     int beløb = automat.returpenge();
                     break;
                 }
-                  case 4: {
+                case 4: {
                     System.out.print("Skriv medlemskode: ");
                     int medlemsKode = tastatur.nextInt();
                     automat.medlemLogin(medlemsKode);
@@ -100,7 +100,7 @@ public class BenytBilletautomat {
                     automat.montørLogin("");
                     break;
                 }
-                 case 15: {
+                case 15: {
 
                     automat.getLog();
 
@@ -122,7 +122,7 @@ public class BenytBilletautomat {
 
                 }
                 case 20: {
-                   // automat.medlemLogin("");
+                    // automat.medlemLogin("");
                     automat.setBilletpris();
                     break;
                 }

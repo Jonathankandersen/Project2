@@ -10,13 +10,12 @@ package AutomatLogik;
  * @author Hold 10
  */
 public class Medlemmer {
+
     String medlemsNavn;
     int medlemsKode;
-    int medlemsType;
-    
-    public Medlemmer(String navn, int kode, int type) {
+
+    public Medlemmer(String navn, int kode) {
         medlemsNavn = navn;
         medlemsKode = kode;
-        medlemsType = type;
     }
 }

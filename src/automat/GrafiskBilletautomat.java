@@ -8,7 +8,7 @@ import javax.swing.*;
 
 /**
  *
- * @author saxok_000
+ * @author Hold 10
  */
 public class GrafiskBilletautomat extends JPanel {
 
@@ -30,10 +30,14 @@ public class GrafiskBilletautomat extends JPanel {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        BilletterGroup = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        ButtonVoksen = new javax.swing.JRadioButton();
+        ButtonBarn = new javax.swing.JRadioButton();
+        ButtonCykel = new javax.swing.JRadioButton();
+        ButtonPensionist = new javax.swing.JRadioButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -44,6 +48,18 @@ public class GrafiskBilletautomat extends JPanel {
 
         jLabel1.setText("Billetter:");
 
+        BilletterGroup.add(ButtonVoksen);
+        ButtonVoksen.setText("Voksen");
+
+        BilletterGroup.add(ButtonBarn);
+        ButtonBarn.setText("Barn");
+
+        BilletterGroup.add(ButtonCykel);
+        ButtonCykel.setText("Cykel");
+
+        BilletterGroup.add(ButtonPensionist);
+        ButtonPensionist.setText("Pensionist");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -52,11 +68,16 @@ public class GrafiskBilletautomat extends JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(376, Short.MAX_VALUE))))
+                        .addContainerGap(376, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(ButtonPensionist)
+                            .addComponent(ButtonCykel)
+                            .addComponent(ButtonBarn)
+                            .addComponent(ButtonVoksen))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,13 +86,25 @@ public class GrafiskBilletautomat extends JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(112, 112, 112))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonVoksen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonBarn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonCykel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonPensionist)
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup BilletterGroup;
+    private javax.swing.JRadioButton ButtonBarn;
+    private javax.swing.JRadioButton ButtonCykel;
+    private javax.swing.JRadioButton ButtonPensionist;
+    private javax.swing.JRadioButton ButtonVoksen;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPopupMenu jPopupMenu1;

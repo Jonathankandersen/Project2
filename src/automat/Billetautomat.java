@@ -28,10 +28,9 @@ public class Billetautomat {
     Scanner tastatur = new Scanner(System.in);
 
     /**
-     * Opret en billetautomat der sælger billetter til 10 kr.
+     * Opret en billetautomat med fire typer af billetter med hver sin pris
      */
     public Billetautomat() {
-        billetpris = 10;
         balance = 0;
         antalBilletterSolgt = 0;
         Billet voksenbillet = new Billet("voksen", 20, 15);
@@ -113,9 +112,8 @@ public class Billetautomat {
             System.out.println();
 
             antalBilletterSolgt = antalBilletterSolgt + 1;
-            balance = balance - billetpris; // Billetter koster 10 kroner
+            balance = balance - billetpris;
         }
-
     }
 
     public int returpenge() {

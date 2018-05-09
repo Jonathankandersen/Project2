@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author saxok_000
+ * @author Hold 10
  */
 public class BenytGrafikpanel {
 

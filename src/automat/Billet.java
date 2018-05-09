@@ -7,7 +7,7 @@ package automat;
 
 /**
  *
- * @author saxok_000
+ * @author Hold 10
  */
 public class Billet {
 

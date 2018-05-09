@@ -189,9 +189,7 @@ public class Billetautomat {
         String memberName = tastatur.nextLine();
         System.out.println("Indtast din kode: ");
         int memberCode = tastatur.nextInt();
-        System.out.println("Indtast hvilken type medlem du er: ");
-        int memberType = tastatur.nextInt();
-        Medlemmer Member = new Medlemmer(memberName, memberCode, memberType);
+        Medlemmer Member = new Medlemmer(memberName, memberCode);
         Medlem.add(Member);
     }
 

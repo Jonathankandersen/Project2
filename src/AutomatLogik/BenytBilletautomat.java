@@ -40,6 +40,7 @@ public class BenytBilletautomat {
                 System.out.println("Tast 14 for at logge ud af montørtilstand");
                 System.out.println("Tast 15 for at vise logs");
                 System.out.println("Tast 16 for at printe log til fil");
+                System.out.println("Tast 21 for at sende logbog til FTP-server");
             }
             int valg = tastatur.nextInt();
             tastatur.nextLine();
@@ -125,6 +126,13 @@ public class BenytBilletautomat {
                     // automat.medlemLogin("");
                     automat.setBilletpris();
                     break;
+                }
+                case 21: {
+                    try {
+                        automat.FTP(arg);
+                    } catch (Exception ex) {
+                        Logger.getLogger(BenytBilletautomat.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             }

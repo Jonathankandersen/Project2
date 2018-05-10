@@ -11,6 +11,7 @@ public class BenytBilletautomat {
     public static void main(String[] arg) {
         Billetautomat automat = new Billetautomat();
         Scanner tastatur = new Scanner(System.in);  // forbered
+        
 
         System.out.println("BenytBilletautomat Project2");
         System.out.println();

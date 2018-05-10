@@ -25,6 +25,9 @@ public class Billetautomat {
     ArrayList<Medlemmer> Medlem = new ArrayList();
     ArrayList<Billet> Billetter = new ArrayList();
     ArrayList<String> Logbog = new ArrayList();
+    
+    String newLine = System.getProperty("line.separator");
+    
 
     Scanner tastatur = new Scanner(System.in);
 
@@ -33,6 +36,7 @@ public class Billetautomat {
      */
     public Billetautomat() {
         balance = 0;
+        billetpris = 20;
         antalBilletterSolgt = 0;
         Billet voksenbillet = new Billet("voksen", 20, 15);
         Billetter.add(voksenbillet);
@@ -83,6 +87,7 @@ public class Billetautomat {
         } else {
             System.err.println("Forkert indtastning");
         }
+       Logbog.add("Den "+dato+ "blev der indsat: "+beløb+newLine);
     }
 
     /**
@@ -213,7 +218,7 @@ public class Billetautomat {
     Date dato = new Date();
 
     public void getLog() {  // Lavet en ny log metode
-        Logbog.add("Dato: " + dato + "Antal solgte billetter: " + getAntalBilletterSolgt() + "Total omsætning: " + getTotal());
+        Logbog.add(newLine+ "Dato: " + dato + "Antal solgte billetter: " + getAntalBilletterSolgt() + "Total omsætning: " + getTotal());
         System.out.println("Logbog: " + Logbog);
     }
 
@@ -243,7 +248,7 @@ public class Billetautomat {
     public void FTP(String[] a) throws Exception {
         FtpForbindelse f = new FtpForbindelse();
         // bemærk - vær altid MEGET FORSIGTIG med at angive adgangskoder i en fil!!
-        f.forbind("ftp.dlptest.com", "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M");
+        f.forbind("ftp.dlptest.com", "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M"); //https://dlptest.com/ftp-test/ er brugt til at teste FTP. Filen gemmes på serveren i 5 minutter.
 
         String indhold = ("Log: " + Logbog);
         f.sendTekst("STOR log.txt", indhold);
